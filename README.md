@@ -1,12 +1,11 @@
 # Classical Concurrency Problems
 
 - [ ] [Barrier]()
-- [ ] [Producer-consumer]()
-- [ ] [Readers-writers]()
 - [ ] [Dining philosophers]()
 - [ ] [Barbershop]()
 - [ ] [FIFO Semaphore]()
 - [ ] [Cigarette smokers]()
+- [ ] [Multi-producer, multi-consumer concurrent queue]()
 - [ ] [H2O](./H2O/README.md)
 
 # Resources

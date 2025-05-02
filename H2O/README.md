@@ -1,4 +1,4 @@
-# H2O Problem
+# Building H2O
 
 1. Hydrogen atoms (H) and oxygen atoms (O) arrive at the factory.
 2. We only want to bond 2 H and 1 O.
@@ -7,7 +7,7 @@
 
 ## CPP
 
-- [Semaphores + Barrier solution](./cpp/sol_1.cpp)
+- [Semaphores + Barrier solution](./cpp/solution.cpp)
 
 ## Go
 
