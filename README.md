@@ -5,7 +5,7 @@
 - [ ] [Barbershop]()
 - [ ] [FIFO Semaphore]()
 - [ ] [Cigarette smokers]()
-- [ ] [Multi-producer, multi-consumer concurrent queue]()
+- [ ] [Multi-producer, multi-consumer concurrent queue](./MPMCQueue/README.md)
 - [ ] [H2O](./H2O/README.md)
 
 # Resources
