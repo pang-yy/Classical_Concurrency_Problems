@@ -6,3 +6,4 @@
 -Wconversion
 -Wall
 -Werror
+-fsanitize=thread

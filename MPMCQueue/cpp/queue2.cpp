@@ -14,7 +14,7 @@ private:
     std::counting_semaphore<> sem;
 
 public:
-    mpmc_queue<T>() : queue{}, mut{}, sem{0} {}
+    mpmc_queue() : queue{}, mut{}, sem{0} {}
     mpmc_queue(const mpmc_queue& other) {
         std::unique_lock<std::mutex> lock{other.mut};
         queue = other.queue;

@@ -28,10 +28,10 @@ public:
     }
 
     std::optional<T> try_dequeue() {
+        std::unique_lock<std::mutex> lock{mut};
         if (queue.empty()) {
             return std::nullopt;
         }
-        std::unique_lock<std::mutex> lock{mut};
         T t = std::move(queue.front());
         queue.pop();
         return std::optional<T>{t};

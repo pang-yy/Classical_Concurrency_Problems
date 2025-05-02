@@ -14,6 +14,7 @@ private:
         std::unique_ptr<node> next;
         std::mutex mut;
 
+        node() : data{}, next{nullptr}, mut{} {}
         node(T data_) : data{data_}, mut{} {}
     };
     std::mutex front_mutex;
@@ -36,6 +37,7 @@ private:
             old_front = std::move(front);
             std::scoped_lock<std::mutex> node_lock{old_front->mut};
             if (old_front->next == nullptr) {
+                front = std::move(old_front);
                 return nullptr;
             }
             front = std::move(old_front->next);
@@ -48,12 +50,12 @@ public:
     // to separate the node being accessed at the front 
     // from that being accessed at the back.
     // Basically in push/pop operations, reduce/prevent both front and back being modified in a function.
-    mpmc_queue() : front{new node{}}, back{front.get()}, front_mutex{}, back_mutex{} {}
+    mpmc_queue() : front_mutex{}, front{new node{}}, back_mutex{}, back{front.get()} {}
     mpmc_queue(const mpmc_queue& other) = delete;
     mpmc_queue& operator=(const mpmc_queue& other) = delete;
 
     void enqueue(T t) {
-        std::unique_ptr<node> p{new node}; // New dummy node
+        std::unique_ptr<node> p{new node{}}; // New dummy node
         node* const new_back = p.get();
 
         std::scoped_lock<std::mutex> back_lock{back_mutex};
