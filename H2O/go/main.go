@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
+	"math/rand/v2"
 	"time"
 	
 	//sol "h2o/solution1"
@@ -18,22 +18,18 @@ func main() {
 		fmt.Println("Bonding hydrogen")
 		time.Sleep(5 * time.Millisecond)
 	}
-
 	wf := sol.NewWaterFactory()
-	rand.Seed(time.Now().Unix())
-	oxy := 10
-	//hydro := oxy * 2
-	for i := 0; i < oxy; i += 1 {
-	/*
-		if rand.Intn(3) == 2 {
+	o := 0
+	h := 0
+	for i := 0; i < 1000; i += 1 {
+		if rand.IntN(3) == 2 {
+			o += 1
 			wf.AddOxygen(oxygenBond)
 		} else {
+			h += 1
 			wf.AddHydrogen(hydrogenBond)
 		}
-	*/
-		wf.AddHydrogen(hydrogenBond)
-		wf.AddOxygen(oxygenBond)
-		wf.AddHydrogen(hydrogenBond)
 	}
+	fmt.Printf("h: %d, o: %d\n", h, o)
 	wf.Shutdown()
 }
